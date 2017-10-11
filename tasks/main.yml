@@ -1,0 +1,29 @@
+---
+
+- name: apt-get stuff
+  apt:
+    name: '{{ item }}'
+    state: present
+    cache_valid_time: 36000
+    update_cache: yes
+  with_items:
+    - htop
+    - nginx
+  tags:
+    - apt
+  
+
+- name: remove default nginx page
+  file:
+    path: /var/www/html/index.nginx-debian.html
+    state: absent
+
+- name: deploy webpage
+  template:
+    src: var/www/html/index.html
+    dest: /var/www/html/index.html
+
+- name: wget cat stuff
+  get_url:
+    url: "https://static.pexels.com/photos/127028/pexels-photo-127028.jpeg"
+    dest: /var/www/html/cat.jpeg

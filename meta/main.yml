@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  author: Mike Christof
+  description: This Ansible Role infuses antigravity, you are warned
+
+  min_ansible_version: 2.2.2.0
+
+  galaxy_tags: []
+
+dependencies: []
